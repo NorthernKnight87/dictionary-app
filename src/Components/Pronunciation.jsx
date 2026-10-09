@@ -27,7 +27,7 @@ const Pronunciation = ({ word, isSubmitted }) => {
       
 
       <div className="max-w-12 max-h-12">
-        <button>
+        <button className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"

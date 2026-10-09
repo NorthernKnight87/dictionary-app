@@ -147,7 +147,7 @@ function App() {
                   error={error}
                   isSubmitted={isSubmitted}
                 />
-                {isSubmitted && wordNotFound (
+                {isSubmitted && wordNotFound && (
                   <div className="flex flex-col justify-center items-center text-center">
                     <NotFound
                       word={word}

@@ -59,7 +59,7 @@ function App() {
   return (
     <>
       <div
-        className="min-h-screen bg-neutral-0 text-neutral-800 dark:bg-neutral-950"
+        className="min-h-screen bg-neutral-0 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-0"
         style={{
           fontFamily:
             font === "sans"

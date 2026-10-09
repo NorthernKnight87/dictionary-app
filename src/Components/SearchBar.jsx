@@ -1,8 +1,14 @@
-const SearchBar = ({ userInput, setUserInput, onSearch, error, isSubmitted }) => {
+const SearchBar = ({
+  userInput,
+  setUserInput,
+  onSearch,
+  error,
+  isSubmitted,
+}) => {
   return (
     <>
       <div
-        className={`flex flex-row justify-between items-center text-neutral-800 bg-neutral-100 rounded-16 px-6 py-4 mt-6
+        className={`flex flex-row justify-between items-center text-neutral-800 bg-neutral-100 rounded-16 px-6 py-4 mt-6 focus-within:outline-2 focus-within:outline-purple-500
         ${
           userInput === "" && isSubmitted
             ? "border border-solid border-red-500"
@@ -32,7 +38,7 @@ const SearchBar = ({ userInput, setUserInput, onSearch, error, isSubmitted }) =>
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           />
-          <button type="submit" className="cursor-pointer">
+          <button type="submit" className="cursor-pointer" aria-label="search">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"

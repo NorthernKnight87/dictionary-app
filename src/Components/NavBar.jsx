@@ -13,7 +13,7 @@ const NavBar = ({
   };
   return (
     <>
-      <div className="flex flex-row justify-between items-center gap-500 font-inter font-bold text-[0.875rem]/[1.4378rem]  md:mt-300">
+      <div className="flex flex-row justify-between items-center gap-500 font-inter font-bold text-[0.875rem]/[1.4378rem] md:mt-300" aria-label="Choose font">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="34"

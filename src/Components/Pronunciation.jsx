@@ -15,12 +15,12 @@ const Pronunciation = ({ word, isSubmitted }) => {
   return (
     <div className="flex flex-row justify-between items-center mt-300">
       <div>
-        <h1 className="font-bold text-[2rem]/[2.125rem] lg:text-[4rem]/[4.188rem]">
+        <h1 className="font-bold text-[2rem]/[2.125rem] md:text-[4rem]/[4.188rem]">
           {/*word is an object that contains the word and its entries. The word property is accessed to display the actual word being pronounced. */}
           {word.word}
         </h1>
         {/* This is known as the nullish coalescing operator. It returns the right-hand side operand when the left-hand side is null or undefined. */}
-        <p className="text-[1.125rem]/[1.5rem] lg:text-[1.25rem]/[1.813rem]">
+        <p className="text-[1.125rem]/[1.5rem] md:text-[1.25rem]/[1.813rem] text-purple-500">
           {pronunciation ?? ""}
         </p>
       </div>

@@ -3,8 +3,6 @@ const PartOfSpeech = ({ word }) => {
     return null;
   }
 
-  const senses = word.entries[0].senses || [];
-
   return (
     <>
       <div className="relative flex flex-col justify-between items-start gap-200">
@@ -20,14 +18,14 @@ const PartOfSpeech = ({ word }) => {
             <h3 className="text-neutral-500 text-base/[1.063rem] md:text-[1.25rem]/[1.313rem]">
               Meaning
             </h3>
-            <ul className="list-disc text-[0.938rem]/[1.5rem] md:text-[1.125rem]/[1.5rem] flex flex-col gap-150">
+            <ul className="list-disc text-[0.938rem]/[1.5rem] md:text-[1.125rem]/[1.5rem] flex flex-col gap-150 px-300">
               {entry.senses.map((sense, j) => (
-                <li key={j}>{sense.definition} </li>
+                <li key={j}>{sense.definition}</li>
               ))}
             </ul>
             {entry.synonyms?.length > 0 && (
-              <p className="text-neutral-500">
-                Synonyms:
+              <p className="text-neutral-500 text-base/[1.25rem] md:text-[1.25rem]/[1.938rem]">
+                Synonyms
                 <span className="text-purple-500 pl-1 font-bold">
                   {entry.synonyms.join(", ")}
                 </span>

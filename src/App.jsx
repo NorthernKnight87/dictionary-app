@@ -69,7 +69,7 @@ function App() {
                 : "Inconsolata",
         }}
       >
-        <div className="relative flex flex-col p-325">
+        <div className="relative flex flex-col p-600">
           <NavBar
             isDarkMode={isDarkMode}
             setIsDarkMode={setIsDarkMode}

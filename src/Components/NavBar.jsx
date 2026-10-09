@@ -13,7 +13,7 @@ const NavBar = ({
   };
   return (
     <>
-      <div className="flex flex-row justify-between items-center gap-500 font-inter font-bold text-[0.875rem]/[1.4378rem] md:mt-300" aria-label="Choose font">
+      <div className="flex flex-row justify-between items-center gap-500 font-inter font-bold text-[0.875rem]/[1.4378rem] md:mt-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="34"
@@ -41,7 +41,7 @@ const NavBar = ({
                   ? "Serif"
                   : "Mono"}
             </span>
-            <button onClick={handleClick} className="cursor-pointer">
+            <button onClick={handleClick} className="cursor-pointer" aria-label="Change font">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./Components/NavBar";
 import SearchBar from "./Components/SearchBar";
 import Pronunciation from "./Components/Pronunciation";
@@ -52,10 +52,14 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+  }, [isDarkMode]);
+
   return (
     <>
       <div
-        className="min-h-screen mx-auto bg-neutral-0 text-neutral-800 max-w-7xl"
+        className="min-h-screen bg-neutral-0 text-neutral-800 dark:bg-neutral-950"
         style={{
           fontFamily:
             font === "sans"
@@ -65,108 +69,48 @@ function App() {
                 : "Inconsolata",
         }}
       >
-        <div>
-          {!isDarkMode ? (
-            <div className="relative flex flex-col p-325 max-w-7xl">
-              <NavBar
-                isDarkMode={isDarkMode}
-                setIsDarkMode={setIsDarkMode}
-                font={font}
-                setFont={setFont}
-                FontDropdownIsOpen={FontDropdownIsOpen}
-                setFontDropdownIsOpen={setFontDropdownIsOpen}
-              />
-              {FontDropdownIsOpen && (
-                <FontDropdown
-                  font={font}
-                  setFont={setFont}
-                  FontDropdownIsOpen={FontDropdownIsOpen}
-                  setFontDropdownIsOpen={setFontDropdownIsOpen}
-                  isDarkMode={isDarkMode}
-                />
-              )}
-              <SearchBar
-                userInput={userInput}
-                setUserInput={setUserInput}
-                onSearch={handleSearch}
-                error={error}
+        <div className="relative flex flex-col p-325">
+          <NavBar
+            isDarkMode={isDarkMode}
+            setIsDarkMode={setIsDarkMode}
+            font={font}
+            setFont={setFont}
+            FontDropdownIsOpen={FontDropdownIsOpen}
+            setFontDropdownIsOpen={setFontDropdownIsOpen}
+          />
+          {FontDropdownIsOpen && (
+            <FontDropdown
+              font={font}
+              setFont={setFont}
+              FontDropdownIsOpen={FontDropdownIsOpen}
+              setFontDropdownIsOpen={setFontDropdownIsOpen}
+              isDarkMode={isDarkMode}
+            />
+          )}
+          <SearchBar
+            userInput={userInput}
+            setUserInput={setUserInput}
+            onSearch={handleSearch}
+            error={error}
+            isSubmitted={isSubmitted}
+          />
+          {isSubmitted && wordNotFound && (
+            <div className="flex flex-col justify-center items-center text-center">
+              <NotFound
+                word={word}
                 isSubmitted={isSubmitted}
+                isDarkMode={isDarkMode}
               />
-              {isSubmitted && wordNotFound && (
-                <div className="flex flex-col justify-center items-center text-center">
-                  <NotFound
-                    word={word}
-                    isSubmitted={isSubmitted}
-                    isDarkMode={isDarkMode}
-                  />
-                </div>
-              )}
-
-              <Pronunciation word={word} isSubmitted={isSubmitted} />
-              <div className="mt-600">
-                <PartOfSpeech word={word} />
-              </div>
-              <div>
-                <Source word={word} />
-              </div>
-            </div>
-          ) : (
-            <div
-              className="bg-neutral-950 min-h-screen max-w-7xl"
-              style={{
-                fontFamily:
-                  font === "sans"
-                    ? "Inter"
-                    : font === "serif"
-                      ? "Lora"
-                      : "Inconsolata",
-              }}
-            >
-              <div className="relative flex flex-col p-325 text-neutral-0 max-w-7xl">
-                <NavBar
-                  isDarkMode={isDarkMode}
-                  setIsDarkMode={setIsDarkMode}
-                  font={font}
-                  setFont={setFont}
-                  FontDropdownIsOpen={FontDropdownIsOpen}
-                  setFontDropdownIsOpen={setFontDropdownIsOpen}
-                />
-                {FontDropdownIsOpen && (
-                  <FontDropdown
-                    font={font}
-                    setFont={setFont}
-                    FontDropdownIsOpen={FontDropdownIsOpen}
-                    setFontDropdownIsOpen={setFontDropdownIsOpen}
-                    isDarkMode={isDarkMode}
-                  />
-                )}
-                <SearchBar
-                  userInput={userInput}
-                  setUserInput={setUserInput}
-                  onSearch={handleSearch}
-                  error={error}
-                  isSubmitted={isSubmitted}
-                />
-                {isSubmitted && wordNotFound && (
-                  <div className="flex flex-col justify-center items-center text-center">
-                    <NotFound
-                      word={word}
-                      isSubmitted={isSubmitted}
-                      isDarkMode={isDarkMode}
-                    />
-                  </div>
-                )}
-
-                <Pronunciation word={word} isSubmitted={isSubmitted} />
-                <div className="mt-600 text-neutral-0">
-                  <PartOfSpeech word={word} />
-                </div>
-                <div>
-                  <Source word={word} />
-                </div>
-              </div>
             </div>
           )}
+
+          <Pronunciation word={word} isSubmitted={isSubmitted} />
+          <div className="mt-600">
+            <PartOfSpeech word={word} />
+          </div>
+          <div>
+            <Source word={word} />
+          </div>
         </div>
       </div>
     </>

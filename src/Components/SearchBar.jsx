@@ -23,6 +23,9 @@ const SearchBar = ({
           className="flex flex-row justify-between items-center gap-4 w-full"
           noValidate
         >
+          <label htmlFor="search" className="sr-only">
+            Search for a word
+          </label>
           <input
             type="search"
             id="search"

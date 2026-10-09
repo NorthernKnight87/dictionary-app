@@ -90,3 +90,5 @@
   --font-inconsolata: "Inconsolata", monospace;
   --font-lora: "Lora", serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *))

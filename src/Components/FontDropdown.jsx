@@ -12,6 +12,7 @@ const FontDropdown = ({
   };
   return (
     <form className="flex items-center justify-end rounded-16">
+      <label htmlFor="font" aria-label="font family"></label>
       <select
         value={font}
         name="font"
